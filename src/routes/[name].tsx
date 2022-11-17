@@ -25,6 +25,7 @@ export default function Page() {
       <h1 class="text-4xl">
         hi <span class="text-#86BDE6">{page()?.name}</span>
       </h1>
+      <span class="text-lg pt-2">id: {page()?.id}</span>
     </main>
   );
 }

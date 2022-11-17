@@ -30,6 +30,7 @@ export const CreatePage = () => {
         type="text"
         name="name"
         id="name"
+        required
         class="bg-neutral-800 px-4 py-2 border border-zinc-700 rounded focus:(outline-none ring ring-zinc-600)"
       />
       <button
