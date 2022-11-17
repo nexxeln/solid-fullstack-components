@@ -17,7 +17,7 @@ export const CreatePage = () => {
         type="text"
         name="name"
         id="name"
-        class="bg-neutral-800 px-4 py-2 border border-zinc-700 rounded focus:outline-none focus:ring focus:ring-zinc-600"
+        class="bg-neutral-800 px-4 py-2 border border-zinc-700 rounded focus:(outline-none ring ring-zinc-600)"
       />
       <button
         type="submit"
