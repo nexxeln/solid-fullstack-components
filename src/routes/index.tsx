@@ -1,29 +1,9 @@
-import { type ParentComponent, Switch, Match, createResource } from "solid-js";
-import { Title } from "solid-start";
-
-const Home: ParentComponent = () => {
-  const [res] = createResource(() =>
-    fetch("/api/notes").then((res) => res.json())
-  );
-
+export default function Home() {
   return (
-    <>
-      <Title>Home</Title>
-      <div>
-        <Switch 
-          fallback={
-            <pre class="font-bold text-2xl text-gray">
-              {JSON.stringify(res())}
-            </pre>
-          }
-        >
-          <Match when={res.loading}>
-            <div class="font-bold text-2xl text-gray">Loading...</div>
-          </Match>
-        </Switch>
-      </div>
-    </>
+    <main class="h-screen text-center font-sans bg-neutral-900 text-neutral-200">
+      <h1 class="text-4xl pt-6 font-black">
+        Full Stack <span class="text-#86BDE6">Solid</span> Components
+      </h1>
+    </main>
   );
-};
-
-export default Home;
+}

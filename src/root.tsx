@@ -1,6 +1,4 @@
 // @refresh reload
-import "./root.css";
-import "uno.css";
 import { Suspense } from "solid-js";
 import {
   Body,
@@ -13,12 +11,14 @@ import {
   Scripts,
   Title,
 } from "solid-start";
+import "@unocss/reset/tailwind.css";
+import "uno.css";
 
 export default function Root() {
   return (
     <Html lang="en">
       <Head>
-        <Title>Create JD App</Title>
+        <Title>Full Stack Solid Components</Title>
         <Meta charset="utf-8" />
         <Meta name="viewport" content="width=device-width, initial-scale=1" />
       </Head>
