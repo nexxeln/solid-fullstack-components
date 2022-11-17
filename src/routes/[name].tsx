@@ -22,8 +22,10 @@ export default function Page() {
   const { page } = useRouteData<typeof routeData>();
 
   return (
-    <>
-      <h1>{page()?.name}</h1>
-    </>
+    <main class="h-screen text-center font-sans bg-neutral-900 text-neutral-200 flex flex-col items-center justify-center">
+      <h1 class="text-4xl">
+        hi <span class="text-#86BDE6">{page()?.name}</span>
+      </h1>
+    </main>
   );
 }
