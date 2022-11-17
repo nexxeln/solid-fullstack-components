@@ -7,7 +7,7 @@ datasource db {
     url      = env("DATABASE_URL")
 }
 
-model Notes {
+model Page {
     id   String @id @default(cuid())
-    text String
+    name String @unique
 }
