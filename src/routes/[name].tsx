@@ -10,7 +10,7 @@ export const routeData = ({ params }: RouteDataArgs) => {
         const data = await prisma.page.findUnique({
           where: { name },
         });
-        console.log("data is", data);
+
         return data;
       },
       { key: () => params.name }
@@ -23,12 +23,7 @@ export default function Page() {
 
   return (
     <>
-      <Match when={!page()}>
-        <h1>Not Found</h1>
-      </Match>
-      <Match when={page()}>
-        <h1>{page()?.name}</h1>
-      </Match>
+      <h1>{page()?.name}</h1>
     </>
   );
 }
