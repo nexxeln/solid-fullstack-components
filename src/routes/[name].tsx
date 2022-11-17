@@ -1,4 +1,3 @@
-import { Match } from "solid-js";
 import { type RouteDataArgs, useRouteData } from "solid-start";
 import { createServerData$ } from "solid-start/server";
 import { prisma } from "~/server/db";
