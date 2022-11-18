@@ -1,4 +1,3 @@
-import { Prisma } from "@prisma/client";
 import { Show } from "solid-js";
 import { createServerAction$, redirect } from "solid-start/server";
 import { prisma } from "~/server/db";
@@ -9,12 +8,10 @@ export const CreatePage = () => {
     const name = form.get("name") as string;
     try {
       await prisma.page.create({ data: { name } });
-    } catch (error) {
-      if (error instanceof Prisma.PrismaClientKnownRequestError) {
-        console.log("is prisma error");
-        if (error.code === "P2002") {
-          throw new Error("The provided name is already in use");
-        }
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    } catch (error: any) {
+      if ("code" in error && error.code === "P2002") {
+        throw new Error("The provided name is already in use");
       } else {
         throw error;
       }
