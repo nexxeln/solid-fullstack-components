@@ -4,6 +4,7 @@ import { type RouteDataArgs, useRouteData } from "solid-start";
 import { createServerData$ } from "solid-start/server";
 import { Like } from "~/components/Like";
 import { prisma } from "~/server/db";
+import { refetchRouteData } from "solid-start";
 
 export const routeData = ({ params }: RouteDataArgs) => {
   return {
@@ -30,7 +31,13 @@ export default function Page() {
       </h1>
       <span class="text-lg pt-2">id: {page()?.id}</span>
 
-      <Like id={page()?.id!} likes={page()?.likes!} />
+      <Like
+        id={page()?.id!}
+        likes={page()?.likes!}
+        onSuccess={() => {
+          return refetchRouteData();
+        }}
+      />
     </main>
   );
 }

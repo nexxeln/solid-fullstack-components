@@ -1,11 +1,11 @@
 import { type Component, createSignal } from "solid-js";
-import { refetchRouteData } from "solid-start";
 import server$ from "solid-start/server";
 import { prisma } from "~/server/db";
 
 export const Like: Component<{
   id: string;
   likes: number;
+  onSuccess: () => void;
 }> = (props) => {
   const like = server$(async (id: string) => {
     await prisma.page.update({
@@ -36,8 +36,7 @@ export const Like: Component<{
           } else {
             like(props.id);
           }
-
-          refetchRouteData();
+          props.onSuccess();
           setLiked(!liked());
         }}
         class={`${
