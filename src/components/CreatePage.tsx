@@ -7,6 +7,8 @@ export const CreatePage = () => {
     // probably should validate this
     const name = form.get("name") as string;
     try {
+      console.log("creating page", name);
+
       await prisma.page.create({ data: { name } });
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
     } catch (error: any) {
