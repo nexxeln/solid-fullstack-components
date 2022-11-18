@@ -7,17 +7,18 @@ export const CreatePage = () => {
   const [create, { Form }] = createServerAction$(async (form: FormData) => {
     // probably should validate this
     const name = form.get("name") as string;
-
     try {
       await prisma.page.create({ data: { name } });
     } catch (error) {
       if (error instanceof Prisma.PrismaClientKnownRequestError) {
+        console.log("is prisma error");
         if (error.code === "P2002") {
           throw new Error("The provided name is already in use");
         }
+      } else {
+        throw error;
       }
     }
-
     return redirect(`/${name}`);
   });
 
