@@ -40,7 +40,7 @@ export const Like: Component<{
           setLiked(!liked());
         }}
         class={`${
-          liked() ? "text-red-400" : "text-neutral-400"
+          liked() ? "text-red-400 fill-red-400" : "text-neutral-400"
         } hover:text-red-400`}
       >
         <svg
