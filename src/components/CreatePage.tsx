@@ -10,6 +10,8 @@ export const CreatePage = () => {
       await prisma.page.create({ data: { name } });
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
     } catch (error: any) {
+      console.log("hi");
+
       if (error.code === "P2002") {
         throw new Error("The provided name is already in use");
       } else {
