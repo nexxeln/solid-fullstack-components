@@ -30,11 +30,11 @@ export const Like: Component<{
   return (
     <>
       <button
-        onClick={() => {
+        onClick={async () => {
           if (liked()) {
-            dislike(props.id);
+            await dislike(props.id);
           } else {
-            like(props.id);
+            await like(props.id);
           }
           props.onSuccess();
           setLiked(!liked());
