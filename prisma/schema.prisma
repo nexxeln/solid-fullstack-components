@@ -8,6 +8,7 @@ datasource db {
 }
 
 model Page {
-    id   String @id @default(cuid())
-    name String @unique
+    id    String @id @default(cuid())
+    name  String @unique
+    likes Int    @default(0)
 }

@@ -1,5 +1,8 @@
+/* eslint-disable @typescript-eslint/no-non-null-asserted-optional-chain */
+/* eslint-disable @typescript-eslint/no-non-null-assertion */
 import { type RouteDataArgs, useRouteData } from "solid-start";
 import { createServerData$ } from "solid-start/server";
+import { Like } from "~/components/Like";
 import { prisma } from "~/server/db";
 
 export const routeData = ({ params }: RouteDataArgs) => {
@@ -26,6 +29,8 @@ export default function Page() {
         hi <span class="text-#86BDE6">{page()?.name}</span>
       </h1>
       <span class="text-lg pt-2">id: {page()?.id}</span>
+
+      <Like id={page()?.id!} likes={page()?.likes!} />
     </main>
   );
 }
